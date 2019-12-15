@@ -1,0 +1,14 @@
+service: nomelette-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: prod
+  region: eu-west-1
+
+functions:
+  categories:
+    handler: api/categories/index.handler
+    events:
+      - http: GET categories
+      - http: GET categories/{categoryId}
