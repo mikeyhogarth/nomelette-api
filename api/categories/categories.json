@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Starters",
+    "id": "starters"
+  },
+  {
+    "name": "Main Courses",
+    "id": "main-courses"
+  },
+  {
+    "name": "Puddings",
+    "id": "puddings"
+  },
+  {
+    "name": "Spring",
+    "id": "spring"
+  },
+  {
+    "name": "Winter",
+    "id": "winter"
+  },
+  {
+    "name": "Summer",
+    "id": "summer"
+  },
+  {
+    "name": "Autumn",
+    "id": "autumn"
+  },
+  {
+    "name": "Soups",
+    "id": "soups"
+  },
+  {
+    "name": "Salads",
+    "id": "salads"
+  },
+  {
+    "name": "Fish and Seafood",
+    "id": "fish-and-seafood"
+  },
+  {
+    "name": "Curries",
+    "id": "curries"
+  },
+  {
+    "name": "Casseroles and Stews",
+    "id": "casseroles-and-stews"
+  },
+  {
+    "name": "Pies",
+    "id": "pies"
+  },
+  {
+    "name": "Tarts and Flans",
+    "id": "tarts-and-flans"
+  },
+  {
+    "name": "Crumbles and Puddings",
+    "id": "crumbles-and-puddings"
+  },
+  {
+    "name": "Trifles and Sponges",
+    "id": "trifles-and-sponges"
+  },
+  {
+    "name": "Snacks and Nibbles",
+    "id": "snacks-and-nibbles"
+  },
+  {
+    "name": "Weird!",
+    "id": "weird"
+  },
+  {
+    "name": "Cakes and Biscuits",
+    "id": "cakes-and-biscuits"
+  },
+  {
+    "name": "Cheesecakes",
+    "id": "cheesecakes"
+  },
+  {
+    "name": "Xmas",
+    "id": "xmas"
+  },
+  {
+    "name": "Buffets and Picnics",
+    "id": "buffets-and-picnics"
+  },
+  {
+    "name": "Jams and Chutneys",
+    "id": "jams-and-chutneys"
+  },
+  {
+    "name": "Pasta",
+    "id": "pasta"
+  },
+  {
+    "name": "Mince Pies",
+    "id": "mince-pies"
+  }
+]

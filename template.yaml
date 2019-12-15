@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: "AWS::Serverless-2016-10-31"
+Description: >-
+  Nomelette API
+Resources:
+  Category:
+    Type: "AWS::Serverless::Function"
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs12.x
+      CodeUri: api/categories
+      Events:
+        HttpApiEvent1:
+          Type: Api
+          Properties:
+            Path: /categories
+            Method: ANY
+        HttpApiEvent2:
+          Type: Api
+          Properties:
+            Path: /categories/{categoryId}
+            Method: ANY
+Outputs:
+  NomeletteApi:
+    Description: "API Gateway endpoint URL for Prod stage for Nomelette API"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

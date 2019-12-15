@@ -1,2 +1,1 @@
-# nomelette-api
-Serverless API for nomelette
+Nomelette API
