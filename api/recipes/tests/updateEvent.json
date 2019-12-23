@@ -1,0 +1,37 @@
+{
+  "Records": [
+    {
+      "eventID": "b6bf486181a5b32a6ef1d3eb204ff2e6",
+      "eventName": "MODIFY",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "eu-west-1",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1577121365,
+        "Keys": {
+          "sk": {
+            "S": "recipe#summer-soup"
+          },
+          "pk": {
+            "S": "recipe#summer-soup"
+          }
+        },
+        "NewImage": {
+          "name": {
+            "S": "Barfoo"
+          },
+          "sk": {
+            "S": "recipe#summer-soup"
+          },
+          "pk": {
+            "S": "recipe#summer-soup"
+          }
+        },
+        "SequenceNumber": "400000000014319471635",
+        "SizeBytes": 50,
+        "StreamViewType": "NEW_IMAGE"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:eu-west-1:476016283012:table/nomelette.co.uk/stream/2019-12-23T16:33:28.516"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "nomelette-api",
+  "version": "1.0.0",
+  "description": "Nomelette API",
+  "main": "index.js",
+  "scripts": {
+    "start:offline": "serverless offline start --stage dev",
+    "migrate:offline": "serverless dynamodb migrate --stage dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeyhogarth/nomelette-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeyhogarth/nomelette-api/issues"
+  },
+  "homepage": "https://github.com/mikeyhogarth/nomelette-api#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.591.0",
+    "serverless-dynamodb-local": "^0.2.38",
+    "serverless-offline": "^5.12.1"
+  }
+}
