@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start:offline": "serverless offline start --stage dev",
-    "migrate:offline": "serverless dynamodb migrate --stage dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +19,7 @@
   "homepage": "https://github.com/mikeyhogarth/nomelette-api#readme",
   "devDependencies": {
     "aws-sdk": "^2.591.0",
+    "serverless": "^1.60.3",
     "serverless-dynamodb-local": "^0.2.38",
     "serverless-offline": "^5.12.1"
   }
