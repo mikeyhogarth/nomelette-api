@@ -7,7 +7,7 @@ provider:
   region: eu-west-1
 
 functions:
-  recipes:
+  recipe:
     handler: api/recipes/get.handler
     events:
       - http: GET recipes/{recipeId}
@@ -26,10 +26,14 @@ functions:
 package:
   exclude:
     - .DS_Store
-    - tests/**
-    - *.spec.js
+    - api/**/tests/**
+    - api/**/*.spec.js
     - .dynamodb/**
     - node_modules/**
+    - package.json
+    - package-lock.json
+    - README.md
+    -
 
 resources:
   Resources:
