@@ -27,6 +27,7 @@ package:
   exclude:
     - .DS_Store
     - tests/**
+    - *.spec.js
     - .dynamodb/**
     - node_modules/**
 

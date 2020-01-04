@@ -4,7 +4,7 @@ const { dynamoItemType } = require("../util");
 const recipeStreamEventHandler = require("./recipe.streamEvent");
 
 module.exports.handler = async event => {
-  const records = event.Records || [];
+  const records = (event || {}).Records || [];
 
   records.forEach(record => {
     switch (dynamoItemType(record)) {

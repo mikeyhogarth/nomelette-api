@@ -10,6 +10,36 @@
         "ApproximateCreationDateTime": 1578134899,
         "Keys": {
           "sk": {
+            "S": "Tagging#soup"
+          },
+          "pk": {
+            "S": "Recipe#summer-soup"
+          }
+        },
+        "NewImage": {
+          "sk": {
+            "S": "Tagging#soup"
+          },
+          "pk": {
+            "S": "Recipe#summer-soup"
+          }
+        },
+        "SequenceNumber": "100000000002887965001",
+        "SizeBytes": 1095,
+        "StreamViewType": "NEW_IMAGE"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:eu-west-1:476016283012:table/nomelette.co.uk/stream/2020-01-04T10:22:57.427"
+    },
+    {
+      "eventID": "8024e4233c4c9bd251eb0e0e52d00d61",
+      "eventName": "INSERT",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "eu-west-1",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1578134899,
+        "Keys": {
+          "sk": {
             "S": "Recipe#summer-soup"
           },
           "pk": {
