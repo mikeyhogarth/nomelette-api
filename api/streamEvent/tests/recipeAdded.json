@@ -1,0 +1,65 @@
+{
+  "Records": [
+    {
+      "eventID": "8024e4233c4c9bd251eb0e0e52d00d61",
+      "eventName": "INSERT",
+      "eventVersion": "1.1",
+      "eventSource": "aws:dynamodb",
+      "awsRegion": "eu-west-1",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 1578134899,
+        "Keys": {
+          "sk": {
+            "S": "Recipe#summer-soup"
+          },
+          "pk": {
+            "S": "Recipe#summer-soup"
+          }
+        },
+        "NewImage": {
+          "method": {
+            "S": "Melt butter in large pan, add peas, lettuce, spring onions, salt, pepper, sugar and stir\nCover and cook gently for about 5 minutes, stirring occasionally\nAdd stock and cook for a further 15 minutes\nRemove from heat and either blend of sieve soup and return to rinsed pan. Check seasoning to taste and swirl in the cream. Garnish with either chopped parsley or mint.\n"
+          },
+          "name": {
+            "S": "Summer Soup"
+          },
+          "sk": {
+            "S": "Recipe#summer-soup"
+          },
+          "description": {
+            "S": "<p>This is a beautiful soup which can be served hot (or on warm days) very cold. Place soup bowls in fridge for a while before serving to ensure both are VERY cold.</p>"
+          },
+          "ingredients": {
+            "S": "3 oz. *Butter*\n1 1/2 lbs *Peas* (Fresh or Frozen)\n1 *Lettuce* Washed & Shredded\n1 Bunch *Spring Onions*, Chopped\n1 Teaspoon *Sugar*\nSalt & Pepper\n1 3/4 Pints *Chicken Stock*\n1/4 Pint Single *Cream*\nChopped *Parsley* or *Mint*\n"
+          },
+          "categories": {
+            "L": [
+              {
+                "S": "starters"
+              },
+              {
+                "S": "summer"
+              },
+              {
+                "S": "soups"
+              }
+            ]
+          },
+          "footnote": {
+            "S": "<p>To freeze, after sieving the soup, season and put into suitable containers and freeze. Remove when required, defrost, add cream and reheat.</p>\r\n"
+          },
+          "pk": {
+            "S": "Recipe#summer-soup"
+          },
+          "cookingTime": {
+            "S": "20 minutes"
+          }
+        },
+        "SequenceNumber": "100000000002887965001",
+        "SizeBytes": 1095,
+        "StreamViewType": "NEW_IMAGE"
+      },
+      "eventSourceARN": "arn:aws:dynamodb:eu-west-1:476016283012:table/nomelette.co.uk/stream/2020-01-04T10:22:57.427"
+    }
+  ]
+}

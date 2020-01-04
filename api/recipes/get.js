@@ -1,31 +1,28 @@
 "use strict";
 
 const dynamodb = require("../dynamodb");
+const TableName = process.env.DYNAMODB_TABLE;
 
 module.exports.handler = async event => {
   const params = {
-    TableName: process.env.DYNAMODB_TABLE,
+    TableName,
     Key: {
-      id: event.pathParameters.recipeIds
+      id: event.pathParameters.recipeId
     }
   };
 
-  // fetch todo from the database
-  dynamodb.get(params, (error, result) => {
-    // handle potential errors
-    if (error) {
-      console.error(error);
-      return {
-        statusCode: error.statusCode || 501,
-        headers: { "Content-Type": "text/plain" },
-        body: "Couldn't fetch item."
-      };
-    }
-
-    // create a response
+  try {
+    const result = dynamodb.get(params);
     return {
       statusCode: 200,
       body: JSON.stringify(result.Item)
     };
-  });
+  } catch (err) {
+    console.error(error);
+    return {
+      statusCode: error.statusCode || 501,
+      headers: { "Content-Type": "text/plain" },
+      body: "Couldn't fetch item."
+    };
+  }
 };

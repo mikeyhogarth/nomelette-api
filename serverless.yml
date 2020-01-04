@@ -11,8 +11,8 @@ functions:
     handler: api/recipes/get.handler
     events:
       - http: GET recipes/{recipeId}
-  process_recipe:
-    handler: api/recipes/process.handler
+  streamEvent:
+    handler: api/streamEvent/index.handler
     events:
       - stream:
           type: dynamodb
