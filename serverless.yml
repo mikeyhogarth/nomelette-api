@@ -5,6 +5,15 @@ provider:
   runtime: nodejs12.x
   stage: prod
   region: eu-west-1
+  environment:
+    DYNAMODB_TABLE: nomelette.co.uk
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:Query
+        - dynamodb:BatchWriteItem
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
   recipe:
@@ -28,12 +37,12 @@ package:
     - .DS_Store
     - api/**/tests/**
     - api/**/*.spec.js
+    - api/**/__snapshots__
     - .dynamodb/**
     - node_modules/**
     - package.json
     - package-lock.json
     - README.md
-    -
 
 resources:
   Resources:
@@ -41,7 +50,7 @@ resources:
       Type: AWS::DynamoDB::Table
       #DeletionPolicy: Retain
       Properties:
-        TableName: nomelette.co.uk
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
 
         # Streams: For indexing and post-processing
         StreamSpecification:

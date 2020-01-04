@@ -14,7 +14,7 @@ describe("streamEvent lambda", () => {
       await streamEventHandler(exampleStreamEvent);
       const calls = recipeStreamEventHandler.mock.calls[0];
       expect(calls.length).toBe(1);
-      expect(calls[0].dynamodb.Keys.pk.S).toEqual("Recipe#summer-soup");
+      expect(calls[0]).toMatchSnapshot();
     });
   });
 

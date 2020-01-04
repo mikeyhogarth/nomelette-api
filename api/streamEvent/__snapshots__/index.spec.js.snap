@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`streamEvent lambda when passed a recipe hands recipes off to the recipe handler 1`] = `
+Object {
+  "awsRegion": "eu-west-1",
+  "dynamodb": Object {
+    "ApproximateCreationDateTime": 1578134899,
+    "Keys": Object {
+      "pk": Object {
+        "S": "Recipe#summer-soup",
+      },
+      "sk": Object {
+        "S": "Recipe#summer-soup",
+      },
+    },
+    "NewImage": Object {
+      "categories": Object {
+        "L": Array [
+          Object {
+            "S": "starters",
+          },
+          Object {
+            "S": "summer",
+          },
+          Object {
+            "S": "soups",
+          },
+        ],
+      },
+      "cookingTime": Object {
+        "S": "20 minutes",
+      },
+      "description": Object {
+        "S": "<p>This is a beautiful soup which can be served hot (or on warm days) very cold. Place soup bowls in fridge for a while before serving to ensure both are VERY cold.</p>",
+      },
+      "footnote": Object {
+        "S": "<p>To freeze, after sieving the soup, season and put into suitable containers and freeze. Remove when required, defrost, add cream and reheat.</p>
+",
+      },
+      "ingredients": Object {
+        "S": "3 oz. *Butter*
+1 1/2 lbs *Peas* (Fresh or Frozen)
+1 *Lettuce* Washed & Shredded
+1 Bunch *Spring Onions*, Chopped
+1 Teaspoon *Sugar*
+Salt & Pepper
+1 3/4 Pints *Chicken Stock*
+1/4 Pint Single *Cream*
+Chopped *Parsley* or *Mint*
+",
+      },
+      "method": Object {
+        "S": "Melt butter in large pan, add peas, lettuce, spring onions, salt, pepper, sugar and stir
+Cover and cook gently for about 5 minutes, stirring occasionally
+Add stock and cook for a further 15 minutes
+Remove from heat and either blend of sieve soup and return to rinsed pan. Check seasoning to taste and swirl in the cream. Garnish with either chopped parsley or mint.
+",
+      },
+      "name": Object {
+        "S": "Summer Soup",
+      },
+      "pk": Object {
+        "S": "Recipe#summer-soup",
+      },
+      "sk": Object {
+        "S": "Recipe#summer-soup",
+      },
+    },
+    "SequenceNumber": "100000000002887965001",
+    "SizeBytes": 1095,
+    "StreamViewType": "NEW_IMAGE",
+  },
+  "eventID": "8024e4233c4c9bd251eb0e0e52d00d61",
+  "eventName": "INSERT",
+  "eventSource": "aws:dynamodb",
+  "eventSourceARN": "arn:aws:dynamodb:eu-west-1:476016283012:table/nomelette.co.uk/stream/2020-01-04T10:22:57.427",
+  "eventVersion": "1.1",
+}
+`;

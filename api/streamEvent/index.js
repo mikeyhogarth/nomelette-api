@@ -1,15 +1,17 @@
 "use strict";
-const { dynamoItemType } = require("../util");
+const { dynamoItemType } = require("../utils/util");
 
 const recipeStreamEventHandler = require("./recipe.streamEvent");
 
-module.exports.handler = async event => {
+module.exports.handler = event => {
   const records = (event || {}).Records || [];
 
-  records.forEach(record => {
-    switch (dynamoItemType(record)) {
+  records.forEach(async record => {
+    const recordType = dynamoItemType(record);
+    switch (recordType) {
       case "Recipe":
-        return recipeStreamEventHandler(record);
+        recipeStreamEventHandler(record);
+        break;
     }
   });
 };

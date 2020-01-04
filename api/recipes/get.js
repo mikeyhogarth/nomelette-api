@@ -1,5 +1,3 @@
-"use strict";
-
 const dynamodb = require("../dynamodb");
 const TableName = process.env.DYNAMODB_TABLE;
 
