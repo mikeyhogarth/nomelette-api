@@ -1,4 +1,4 @@
-service: nomelette-api
+service: nomelette
 
 provider:
   name: aws
@@ -62,6 +62,9 @@ resources:
             AttributeType: S
           - AttributeName: sk
             AttributeType: S
+          - AttributeName: taggingType
+            AttributeType: S
+
         KeySchema:
           - AttributeName: pk
             KeyType: HASH
@@ -72,6 +75,22 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+
+        GlobalSecondaryIndexes:
+          - IndexName: tagging-index
+            KeySchema:
+              - AttributeName: sk
+                KeyType: HASH
+              - AttributeName: taggingType # sparse index, so only taggings are indexed
+                KeyType: RANGE
+            ProvisionedThroughput:
+              ReadCapacityUnits: "1"
+              WriteCapacityUnits: "1"
+            Projection:
+              NonKeyAttributes:
+                - pk
+                - recipeName
+              ProjectionType: INCLUDE
 
 custom:
   dynamodb:

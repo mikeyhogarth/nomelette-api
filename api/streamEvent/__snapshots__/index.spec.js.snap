@@ -50,11 +50,11 @@ Add stock and cook for a further 15 minutes
 Remove from heat and either blend of sieve soup and return to rinsed pan. Check seasoning to taste and swirl in the cream. Garnish with either chopped parsley or mint.
 ",
       },
-      "name": Object {
-        "S": "Summer Soup",
-      },
       "pk": Object {
         "S": "Recipe#summer-soup",
+      },
+      "recipeName": Object {
+        "S": "Summer Soup",
       },
       "sk": Object {
         "S": "Recipe#summer-soup",

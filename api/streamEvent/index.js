@@ -6,12 +6,16 @@ const recipeStreamEventHandler = require("./recipe.streamEvent");
 module.exports.handler = event => {
   const records = (event || {}).Records || [];
 
-  records.forEach(async record => {
-    const recordType = dynamoItemType(record);
-    switch (recordType) {
-      case "Recipe":
-        recipeStreamEventHandler(record);
-        break;
-    }
-  });
+  try {
+    records.forEach(async record => {
+      const recordType = dynamoItemType(record);
+      switch (recordType) {
+        case "Recipe":
+          recipeStreamEventHandler(record);
+          break;
+      }
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };

@@ -3,6 +3,10 @@ const { unique } = require("../utils/util");
 
 const TableName = process.env.DYNAMODB_TABLE;
 
+/**
+ *
+ * @param {*} recipeSlug
+ */
 async function getRecipeById(recipeSlug) {
   const params = {
     TableName,
@@ -22,7 +26,12 @@ exports.getRecipeById = getRecipeById;
  * @param {*} taggingType
  * @param {*} taggings
  */
-async function addTaggingsToRecipe(recipeId, taggingType, taggings) {
+async function addTaggingsToRecipe(
+  recipeId,
+  recipeName,
+  taggingType,
+  taggings
+) {
   if (!taggings.length) return;
 
   var params = {
@@ -32,7 +41,8 @@ async function addTaggingsToRecipe(recipeId, taggingType, taggings) {
           Item: {
             pk: recipeId,
             sk: `Tagging#${tagging}`,
-            taggingType
+            taggingType,
+            recipeName
           }
         }
       }))
