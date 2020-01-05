@@ -14,12 +14,23 @@ provider:
         - dynamodb:Query
         - dynamodb:BatchWriteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}/index/*"
 
 functions:
+  # Endpoints
   recipe:
-    handler: api/recipes/get.handler
+    handler: api/endpoints/recipes/get.handler
     events:
       - http: GET recipes/{recipeId}
+  taggings:
+    handler: api/endpoints/tags/get.handler
+    events:
+      - http: GET taggings/{tagId}
+
+  #Stream
   streamEvent:
     handler: api/streamEvent/index.handler
     events:

@@ -3,6 +3,20 @@ const { unique } = require("../utils/util");
 
 const TableName = process.env.DYNAMODB_TABLE;
 
+async function getRecipesByTag(tagSlug) {
+  const params = {
+    TableName,
+    IndexName: "tagging-index",
+    KeyConditionExpression: "sk = :v1",
+    ExpressionAttributeValues: {
+      ":v1": `Tagging#${tagSlug}`
+    }
+  };
+
+  return dynamodb.query(params).promise();
+}
+exports.getRecipesByTag = getRecipesByTag;
+
 /**
  *
  * @param {*} recipeSlug

@@ -1,4 +1,4 @@
-const { getRecipeById } = require("../services/recipe.service");
+const { getRecipeById } = require("../../services/recipe.service");
 
 module.exports.handler = async event => {
   try {
