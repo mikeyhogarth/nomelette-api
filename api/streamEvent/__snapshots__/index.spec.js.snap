@@ -15,16 +15,10 @@ Object {
     },
     "NewImage": Object {
       "categories": Object {
-        "L": Array [
-          Object {
-            "S": "starters",
-          },
-          Object {
-            "S": "summer",
-          },
-          Object {
-            "S": "soups",
-          },
+        "SS": Array [
+          "starters",
+          "summer",
+          "soups",
         ],
       },
       "cookingTime": Object {

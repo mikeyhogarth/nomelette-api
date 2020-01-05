@@ -5,6 +5,14 @@ function get(p, o) {
 }
 module.exports.get = get;
 
+function unique(array) {
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  return array.filter(onlyUnique);
+}
+module.exports.unique = unique;
+
 // A type is identifiable from its PK/SK
 module.exports.dynamoItemType = item => {
   const pk = get(["dynamodb", "Keys", "pk", "S"], item) || "";

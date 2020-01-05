@@ -63,17 +63,7 @@
             "S": "3 oz. *Butter*\n1 1/2 lbs *Peas* (Fresh or Frozen)\n1 *Lettuce* Washed & Shredded\n1 Bunch *Spring Onions*, Chopped\n1 Teaspoon *Sugar*\nSalt & Pepper\n1 3/4 Pints *Chicken Stock*\n1/4 Pint Single *Cream*\nChopped *Parsley* or *Mint*\n"
           },
           "categories": {
-            "L": [
-              {
-                "S": "starters"
-              },
-              {
-                "S": "summer"
-              },
-              {
-                "S": "soups"
-              }
-            ]
+            "SS": ["starters", "summer", "soups"]
           },
           "footnote": {
             "S": "<p>To freeze, after sieving the soup, season and put into suitable containers and freeze. Remove when required, defrost, add cream and reheat.</p>\r\n"

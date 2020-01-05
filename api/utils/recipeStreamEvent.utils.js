@@ -1,10 +1,7 @@
 const { get } = require("./util");
 
 exports.getCategoriesForStreamEvent = recipeStreamEvent => {
-  return get(
-    ["dynamodb", "NewImage", "categories", "L"],
-    recipeStreamEvent
-  ).map(c => c.S);
+  return get(["dynamodb", "NewImage", "categories", "SS"], recipeStreamEvent);
 };
 
 exports.getIngredientsForStreamEvent = recipeStreamEvent => {

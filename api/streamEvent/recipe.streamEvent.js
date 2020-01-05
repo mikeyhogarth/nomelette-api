@@ -14,21 +14,25 @@ module.exports = async recipeStreamEvent => {
   const recipeId = recipeStreamEvent.dynamodb.Keys.pk.S;
 
   if (["INSERT", "MODIFY"].includes(recipeStreamEvent.eventName)) {
-    await updateRecipe(recipeId, recipeStreamEvent);
+    // Updated: we need to update the taggings
+    await updateTaggings(recipeId, recipeStreamEvent);
+  } else if (recipeStreamEvent.eventName === "REMOVE") {
+    // Removed: we need to delete the taggings it had
+    await deleteExistingTaggings(recipeId);
   }
 };
 
-async function updateRecipe(recipeId, streamEvent) {
+async function updateTaggings(recipeId, streamEvent) {
   // delete all existing taggings
   await deleteExistingTaggings(recipeId);
 
-  // write away the ingredients
+  // write away the ingredient taggings
   await addTaggingsToRecipe(
     recipeId,
     "ingredient",
     getIngredientsForStreamEvent(streamEvent)
   );
-  // write away the categories
+  // write away the category taggings
   await addTaggingsToRecipe(
     recipeId,
     "category",

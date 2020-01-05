@@ -1,5 +1,20 @@
 const dynamodb = require("../dynamodb");
+const { unique } = require("../utils/util");
+
 const TableName = process.env.DYNAMODB_TABLE;
+
+async function getRecipeById(recipeSlug) {
+  const params = {
+    TableName,
+    Key: {
+      pk: `Recipe#${recipeSlug}`,
+      sk: `Recipe#${recipeSlug}`
+    }
+  };
+
+  return dynamodb.get(params).promise();
+}
+exports.getRecipeById = getRecipeById;
 
 /**
  *
@@ -12,7 +27,7 @@ async function addTaggingsToRecipe(recipeId, taggingType, taggings) {
 
   var params = {
     RequestItems: {
-      [TableName]: taggings.map(tagging => ({
+      [TableName]: unique(taggings).map(tagging => ({
         PutRequest: {
           Item: {
             pk: recipeId,
@@ -24,7 +39,7 @@ async function addTaggingsToRecipe(recipeId, taggingType, taggings) {
     }
   };
 
-  return await dynamodb.batchWrite(params).promise();
+  return dynamodb.batchWrite(params).promise();
 }
 exports.addTaggingsToRecipe = addTaggingsToRecipe;
 
