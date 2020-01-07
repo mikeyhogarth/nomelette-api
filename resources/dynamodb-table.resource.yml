@@ -1,0 +1,46 @@
+Resources:
+  NomeletteTable:
+    Type: AWS::DynamoDB::Table
+    #DeletionPolicy: Retain
+    Properties:
+      TableName: ${self:provider.environment.DYNAMODB_TABLE}
+
+      # Streams: For indexing and post-processing
+      StreamSpecification:
+        StreamViewType: NEW_IMAGE
+
+      # PK/SK Definitions / schemas
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+        - AttributeName: taggingType
+          AttributeType: S
+
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+
+      # Provisioning
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+
+      GlobalSecondaryIndexes:
+        - IndexName: tagging-index
+          KeySchema:
+            - AttributeName: sk
+              KeyType: HASH
+            - AttributeName: taggingType # sparse index, so only taggings are indexed
+              KeyType: RANGE
+          ProvisionedThroughput:
+            ReadCapacityUnits: "1"
+            WriteCapacityUnits: "1"
+          Projection:
+            NonKeyAttributes:
+              - pk
+              - recipeName
+            ProjectionType: INCLUDE
