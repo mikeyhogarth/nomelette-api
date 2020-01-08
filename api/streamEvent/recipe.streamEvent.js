@@ -13,12 +13,12 @@ const {
 module.exports = async recipeStreamEvent => {
   const item = recipeStreamEvent.dynamodb;
   const recipeId = item.Keys.pk.S;
-  const recipeName = item.NewImage.recipeName
-    ? item.NewImage.recipeName.S
-    : "N/A";
 
   if (["INSERT", "MODIFY"].includes(recipeStreamEvent.eventName)) {
     // Updated: we need to update the taggings
+    const recipeName = item.NewImage.recipeName
+      ? item.NewImage.recipeName.S
+      : "N/A";
     await updateTaggings(recipeId, recipeName, recipeStreamEvent);
   } else if (recipeStreamEvent.eventName === "REMOVE") {
     // Removed: we need to delete the taggings it had
