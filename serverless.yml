@@ -46,9 +46,9 @@ functions:
 package:
   exclude:
     - .DS_Store
-    - api/**/tests/**
-    - api/**/*.spec.js
+    - api/**/__tests__
     - api/**/__snapshots__
+    - api/**/*.spec.js
     - .dynamodb/**
     - node_modules/**
     - package.json

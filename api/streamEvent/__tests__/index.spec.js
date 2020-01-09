@@ -1,8 +1,8 @@
-const streamEventHandler = require("./index").handler;
-const exampleStreamEvent = require("./tests/streamEvent.json");
-const recipeStreamEventHandler = require("./recipe.streamEvent");
+const streamEventHandler = require("../index").handler;
+const exampleStreamEvent = require("../__mocks__/streamEvent.json");
+const recipeStreamEventHandler = require("../recipe.streamEvent");
 
-jest.mock("./recipe.streamEvent");
+jest.mock("../recipe.streamEvent");
 
 describe("streamEvent lambda", () => {
   afterEach(() => {

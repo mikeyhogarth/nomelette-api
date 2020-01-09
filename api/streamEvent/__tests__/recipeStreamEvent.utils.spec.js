@@ -1,8 +1,8 @@
-const recipeStreamEvent = require("../streamEvent/tests/recipeStreamEvent.json");
+const recipeStreamEvent = require("../__mocks__/recipeInsertEvent.json");
 const {
   getCategoriesForStreamEvent,
   getIngredientsForStreamEvent
-} = require("./recipeStreamEvent.utils");
+} = require("../recipeStreamEvent.utils");
 
 describe("getCategoriesForStreamEvent", () => {
   it("extracts the categories from the object", () => {

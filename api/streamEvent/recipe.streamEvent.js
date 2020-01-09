@@ -8,7 +8,7 @@ const {
 const {
   getCategoriesForStreamEvent,
   getIngredientsForStreamEvent
-} = require("../utils/recipeStreamEvent.utils");
+} = require("./recipeStreamEvent.utils");
 
 module.exports = async recipeStreamEvent => {
   const item = recipeStreamEvent.dynamodb;

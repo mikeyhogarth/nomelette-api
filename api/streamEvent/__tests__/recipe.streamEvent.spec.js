@@ -1,13 +1,13 @@
-const recipeStreamEventHandler = require("./recipe.streamEvent");
-const recipeInsertMock = require("./tests/recipeInsertEvent.json");
-const recipeRemoveMock = require("./tests/recipeRemoveEvent.json");
+const recipeStreamEventHandler = require("../recipe.streamEvent");
+const recipeInsertMock = require("../__mocks__/recipeInsertEvent.json");
+const recipeRemoveMock = require("../__mocks__/recipeRemoveEvent.json");
 
 const {
   deleteExistingTaggings,
   addTaggingsToRecipe
-} = require("../services/recipe.service");
+} = require("../../services/recipe.service");
 
-jest.mock("../services/recipe.service");
+jest.mock("../../services/recipe.service");
 
 describe("recipeStreamEvent", () => {
   afterEach(() => {

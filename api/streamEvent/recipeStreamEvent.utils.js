@@ -1,4 +1,4 @@
-const { get } = require("./util");
+const { get } = require("../utils/util");
 
 exports.getCategoriesForStreamEvent = recipeStreamEvent => {
   return get(["dynamodb", "NewImage", "categories", "SS"], recipeStreamEvent);

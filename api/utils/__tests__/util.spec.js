@@ -1,4 +1,4 @@
-const { dynamoItemType, unique } = require("./util");
+const { dynamoItemType, unique } = require("../util");
 
 describe("dynamoItemType", () => {
   describe("when PK/SK are the same", () => {
