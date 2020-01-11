@@ -1,5 +1,5 @@
 "use strict";
-const { dynamoItemType } = require("../../utils/util");
+const { dynamoItemType } = require("../api/utils/util");
 
 const recipeStreamEventHandler = require("./recipe.streamEvent");
 

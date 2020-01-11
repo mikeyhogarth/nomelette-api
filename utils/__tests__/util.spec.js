@@ -19,6 +19,24 @@ describe("dynamoItemType", () => {
       expect(dynamoItemType(item)).toEqual("Foo");
     });
   });
+  describe("when PK/SK are different", () => {
+    it("returns type based on PK/SK", () => {
+      const item = {
+        dynamodb: {
+          Keys: {
+            pk: {
+              S: "Foo#bar"
+            },
+            sk: {
+              S: "Bar#foo"
+            }
+          }
+        }
+      };
+
+      expect(dynamoItemType(item)).toEqual("Foo/Bar");
+    });
+  });
 });
 
 describe("unique", () => {
