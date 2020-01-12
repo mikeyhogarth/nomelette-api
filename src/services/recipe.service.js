@@ -1,5 +1,5 @@
 const dynamodb = require("./dynamodb");
-const { unique } = require("../src/utils/utiltil");
+const { unique } = require("../utils/util");
 
 const TableName = process.env.DYNAMODB_TABLE;
 

@@ -3,7 +3,7 @@
 const {
   deleteExistingTaggings,
   addTaggingsToRecipe
-} = require("../src/services/recipe.service");
+} = require("../services/recipe.service");
 
 const {
   getCategoriesForStreamEvent,

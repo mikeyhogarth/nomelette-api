@@ -22,17 +22,17 @@ provider:
 functions:
   # Endpoints
   getRecipe:
-    handler: api/endpoints/recipes/get.handler
+    handler: src/endpoints/recipes/get.handler
     events:
       - http: GET recipes/{recipeId}
   getTagging:
-    handler: api/endpoints/tags/get.handler
+    handler: src/endpoints/tags/get.handler
     events:
       - http: GET taggings/{tagId}
 
   #Stream
   streamEvent:
-    handler: api/streamEvent/index.handler
+    handler: src/dynamostream/index.handler
     events:
       - stream:
           type: dynamodb
