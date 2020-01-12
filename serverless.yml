@@ -11,6 +11,7 @@ provider:
     - Effect: Allow
       Action:
         - dynamodb:GetItem
+        - dynamodb:PutItem
         - dynamodb:Query
         - dynamodb:BatchWriteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
@@ -66,6 +67,5 @@ custom:
       - dev
 
 plugins:
-  - serverless-dynamodb-local
   - serverless-offline #serverless-offline needs to be last in the list
 

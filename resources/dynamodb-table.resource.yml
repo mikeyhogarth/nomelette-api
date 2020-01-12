@@ -1,7 +1,8 @@
 Resources:
   NomeletteTable:
     Type: AWS::DynamoDB::Table
-    #DeletionPolicy: Retain
+    DeletionPolicy: Retain
+
     Properties:
       TableName: ${self:provider.environment.DYNAMODB_TABLE}
 

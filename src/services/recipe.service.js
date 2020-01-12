@@ -3,6 +3,10 @@ const { unique } = require("../utils/util");
 
 const TableName = process.env.DYNAMODB_TABLE;
 
+/**
+ *
+ * @param {string} tagSlug
+ */
 async function getRecipesByTag(tagSlug) {
   const params = {
     TableName,
@@ -19,7 +23,7 @@ exports.getRecipesByTag = getRecipesByTag;
 
 /**
  *
- * @param {*} recipeSlug
+ * @param {string} recipeSlug
  */
 async function getRecipeById(recipeSlug) {
   const params = {
@@ -36,9 +40,10 @@ exports.getRecipeById = getRecipeById;
 
 /**
  *
- * @param {*} recipeId
- * @param {*} taggingType
- * @param {*} taggings
+ * @param {string} recipeId
+ * @param {string} recipeName
+ * @param {string} taggingType
+ * @param {array<string>} taggings
  */
 async function addTaggingsToRecipe(
   recipeId,
@@ -69,7 +74,29 @@ exports.addTaggingsToRecipe = addTaggingsToRecipe;
 
 /**
  *
- * @param {*} recipeId
+ * @param {string} recipeId
+ * @param {string} recipeName
+ * @param {string} bookId
+ */
+async function addBookToRecipe(recipeId, recipeName, bookId) {
+  if (!bookId) return;
+
+  var params = {
+    TableName,
+    Item: {
+      pk: recipeId,
+      sk: `Book#${bookId}`,
+      recipeName
+    }
+  };
+
+  return dynamodb.put(params).promise();
+}
+exports.addBookToRecipe = addBookToRecipe;
+
+/**
+ *
+ * @param {string} recipeId
  */
 async function deleteExistingTaggings(recipeId) {
   /**
