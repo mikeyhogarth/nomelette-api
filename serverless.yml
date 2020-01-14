@@ -26,11 +26,12 @@ functions:
     handler: src/endpoints/recipes/get.handler
     events:
       - http: GET recipes/{recipeId}
+      - cors: true
   getTagging:
     handler: src/endpoints/tags/get.handler
     events:
       - http: GET taggings/{tagId}
-
+      - cors: true
   #Stream
   streamEvent:
     handler: src/dynamostream/index.handler
