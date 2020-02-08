@@ -52,6 +52,7 @@ package:
     - api/**/__snapshots__
     - api/**/*.spec.js
     - .dynamodb/**
+    - resources/**
     - node_modules/**
     - package.json
     - package-lock.json
