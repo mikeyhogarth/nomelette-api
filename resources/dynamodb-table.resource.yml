@@ -9,7 +9,6 @@ Resources:
       # Streams: For indexing and post-processing
       StreamSpecification:
         StreamViewType: NEW_IMAGE
-        StreamEnabled: true
 
       # PK/SK Definitions / schemas
       AttributeDefinitions:
