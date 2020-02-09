@@ -99,19 +99,8 @@ exports.addBookToRecipe = addBookToRecipe;
  * @param {string} recipeId
  */
 async function deleteExistingTaggings(recipeId) {
-  /**
-   * Get the taggings
-   */
-  const getTagsParams = {
-    TableName,
-    KeyConditionExpression: "pk = :v1 and begins_with(sk, :v2)",
-    ExpressionAttributeValues: {
-      ":v1": recipeId,
-      ":v2": "Tagging"
-    }
-  };
-
-  const taggingQuery = await dynamodb.query(getTagsParams).promise();
+  // Get the taggings to remove
+  const taggingQuery = await getTaggingsForRecipe(recipeId);
 
   // crap out if there aren't any
   if (!taggingQuery.Items.length) return;
@@ -132,3 +121,39 @@ async function deleteExistingTaggings(recipeId) {
   return dynamodb.batchWrite(deleteTagsParams).promise();
 }
 exports.deleteExistingTaggings = deleteExistingTaggings;
+
+/**
+ *
+ * @param {string} recipeId
+ */
+async function getTaggingsForRecipe(recipeId) {
+  const getTagsParams = {
+    TableName,
+    KeyConditionExpression: "pk = :v1 and begins_with(sk, :v2)",
+    ExpressionAttributeValues: {
+      ":v1": recipeId,
+      ":v2": "Tagging"
+    }
+  };
+
+  return await dynamodb.query(getTagsParams).promise();
+}
+exports.getTaggingsForRecipe = getTaggingsForRecipe;
+
+/**
+ *
+ * @param {string} recipeId
+ */
+async function getBooksForRecipe(recipeId) {
+  const params = {
+    TableName,
+    KeyConditionExpression: "pk = :v1 and begins_with(sk, :v2)",
+    ExpressionAttributeValues: {
+      ":v1": recipeId,
+      ":v2": "Book"
+    }
+  };
+
+  return dynamodb.query(params).promise();
+}
+exports.getBooksForRecipe = getBooksForRecipe;
