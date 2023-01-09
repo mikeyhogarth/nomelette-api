@@ -23,7 +23,7 @@
     "jest": "^24.9.0",
     "@shelf/jest-dynamodb": "^1.7.0",
     "serverless": "^1.60.3",
-    "serverless-offline": "^5.12.1",
+    "serverless-offline": "^12.0.4",
     "dotenv": "^8.2.0"
   }
 }
